@@ -1,0 +1,11 @@
+.bullet {
+    position: absolute;
+    width: 5px;
+    height: auto;
+}
+
+.bullet-Alien {
+    position: fixed;
+    width: 5px;
+    height: auto;
+}

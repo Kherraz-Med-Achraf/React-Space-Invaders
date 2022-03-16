@@ -1,0 +1,19 @@
+.game_window {
+    padding: 10px;
+    margin: 10px auto;
+    width: 60%;
+    height: 97%;
+    min-width: 400px;
+    min-height: 700px;
+    border: 1px solid white;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("../Assets/Background/gif1.gif");
+}
+
+
+

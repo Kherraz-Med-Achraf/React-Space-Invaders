@@ -1,0 +1,23 @@
+.Lives {
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+.Lives h2 {
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.ship-lives {
+    position: relative;
+    width: 30px;
+    height: auto;
+
+}
