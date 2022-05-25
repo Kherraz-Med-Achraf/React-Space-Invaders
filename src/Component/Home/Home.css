@@ -1,7 +1,7 @@
 .Home {
     margin: auto;
-    height: 40%;
-    width: 50%;
+    height: 50%;
+    width: 60%;
     position: absolute;
     top: 0;
     right: 0;
@@ -12,17 +12,29 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .Home h1 {
-     text-align: center;
      color: white;
      font-size: 50px;
      margin: 20px;
  }
 
-.Home img {
-    width: 20%;
-    align-self: center;
+.Home button {
+    text-align: center;
+    width: 150px;
+    box-shadow: 5px 5px 15px black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 3px solid #c8b6ff;
+    background: transparent;
+    color: #F8F9FA;
+    transition: all 0.5s ease;
     cursor: pointer;
+}
+
+.Home button:hover {
+    background-color: #c8b6ff;
+    color: #F8F9FA;
 }

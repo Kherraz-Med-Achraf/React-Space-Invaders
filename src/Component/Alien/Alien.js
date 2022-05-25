@@ -1,24 +1,30 @@
 import alienImage from '../../Assets/Aliens/AngelWing_I_150x100.png'
+import alienImagelvl2 from '../../Assets/Aliens/AquaCruiser_A.png'
 import {SFX} from "../SFX";
 const RIGHT = 'right'
 const LEFT = 'left'
 
 
 export class Alien {
-    constructor({x , y , getOverlappingBullet , removeAlien , removeBullet}) {
+    constructor({x , y , getOverlappingBullet , removeAlien , removeBullet, lvl}) {
         this.el = document.createElement('img')
-        this.el.src = alienImage;
+        if (lvl === 2) {
+            this.el.src = alienImagelvl2;
+            this.speed = 0.9;
+        }else {
+            this.el.src = alienImage;
+            this.speed = 0.5;
+        }
         this.el.className = "alien";
         this.setX(x);
         this.setY(y);
-        this.speed = 0.5;
         this.DOWN_SPEED = 10;
         this.direction = LEFT;
         this.getOverlappingBullet = getOverlappingBullet;
         this.removeAlien = removeAlien;
         this.removeBullet = removeBullet;
         this.intervalAlien = '';
-        this.fireInterval = '';
+        //this.fireInterval = '';
         this.sfx = new SFX()
         document.querySelector('.game_window').append(this.el);
     }
@@ -62,8 +68,8 @@ export class Alien {
     fireAlien = ({creatBullet}) => {
         this.sfx.alienFireAudioFonction();
         creatBullet ({
-                x: this.x + 50,
-                y: this.y + 66,
+                x: this.x + 35,
+                y: this.y + 70,
                 nomDeClassCSS: 'bullet-Alien',
                 isAlien: true
             })

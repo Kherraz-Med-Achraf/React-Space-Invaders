@@ -1,5 +1,6 @@
 .alien {
     position: fixed;
-    width: 100px;
+    width: 70px;
+    object-fit: contain;
     height: auto;
 }

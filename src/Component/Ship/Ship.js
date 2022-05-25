@@ -2,9 +2,10 @@ import ShipImg from '../../Assets/ShipImg/ship.png';
 import {SFX} from "../SFX";
 
 
+
 export class Ship {
 
-    constructor({getOverlappingBullet, removeBullet}) {
+    constructor({getOverlappingBullet, getOverlappingAliens, gameOver, removeBullet}) {
         this.el = document.createElement('img')
         this.el.src = ShipImg
         this.el.className = "ship"
@@ -14,8 +15,10 @@ export class Ship {
         this.speed = 5;
         this.canFire = true;
         this.sfx = new SFX();
-        this.getOverlappingBullet = getOverlappingBullet;
-        this.removeBullet = removeBullet;
+        this.getOverlappingBullet = getOverlappingBullet; //si notre objet se superpose
+        this.getOverlappingAliens = getOverlappingAliens;
+        this.gameOver = gameOver;
+        this.removeBullet = removeBullet; //supprimer les tirs si on touvhe un ennemie ou sa sort de l'ecran
         this.isAlive = true
 
     }
@@ -50,7 +53,7 @@ export class Ship {
             this.canFire = false;
             creatBullet ({
                 x: this.x + 43,
-                y: this.y,
+                y: this.y - 20,
                 nomDeClassCSS: "bullet"
             });
 
@@ -68,11 +71,16 @@ export class Ship {
     shipUpdate = () => {
 
         const bulletHit = this.getOverlappingBullet(this);
+        const alienHit = this.getOverlappingAliens(this);
         if (bulletHit && bulletHit.isAlien && this.isAlive) {
             this.sfx.shipExplosionFonction()
             this.removeBullet(bulletHit)
             this.kill()
         }
+        if (alienHit) {
+            this.gameOver()
+        }
+
     }
 
     spawn = () => {
@@ -84,13 +92,9 @@ export class Ship {
 
     kill = () => {
         this.isAlive = false;
-
         setTimeout (() => {
             this.spawn()
         }, 3000)
         this.el.style.opacity = 0;
     }
-
-
-
 }

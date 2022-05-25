@@ -22,16 +22,20 @@ function GameOver(props) {
         nav('/game');
         refreshPage()
     }
+    const goToGameLvl2 = () => {
+        nav('/gamelvl2');
+        refreshPage()
+    }
 
     return (
         <div className="GameOver">
             <h1>Game Over !</h1>
             <h1>Votre Score : {score}</h1>
             <div className="choice">
-                <img onClick={goToGame} src={ReplayImg} alt=""/>
-                <img onClick={goToHome} src={HomeImg} alt=""/>
+                <button onClick={goToGame}>Replay lvl 1</button>
+                <button onClick={goToGameLvl2}>Replay lvl 2</button>
+                <button onClick={goToHome}>Quitter</button>
             </div>
-
         </div>
     );
 }

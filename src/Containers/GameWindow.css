@@ -15,5 +15,32 @@
     background: url("../Assets/Background/gif1.gif");
 }
 
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.buttonGame {
+    position: fixed;
+    height: 50px;
+    width: 100px;
+    box-shadow: 5px 5px 15px black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 3px solid #c8b6ff;
+    background: transparent;
+    color: #F8F9FA;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.buttonGame:hover {
+     background-color: #c8b6ff;
+     color: #F8F9FA;
+}
+
+#Quitter {
+    bottom: 0;
+}
 

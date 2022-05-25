@@ -1,21 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Home.css'
 import {useNavigate} from 'react-router-dom'
-import StartImg from '../../Assets/Gui/StartPlay_0035_Package-----------------.png'
+
 
 function Home(props) {
-
 
     const nav = useNavigate();
     const goTo = () => {
         nav('/game');
     }
+    const goResponsive = () => {
+        nav('/responsive')
+    }
+    const responsive = window.innerWidth;
+    useEffect(()=>{
+
+        console.log(responsive)
+        if (responsive < 1280) {
+            goResponsive()
+        }
+    },[responsive])
+
+
+
+
 
         return (
             <div className="Home">
-                <h1>Projet React</h1>
-                <h1>SpaceInvader !</h1>
-                <img onClick={goTo} src={StartImg} alt=""/>
+                <h1>Projet React SpaceInvader !</h1>
+                <button onClick={goTo}>Start</button>
             </div>
         );
 

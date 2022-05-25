@@ -8,7 +8,7 @@ function ScoreReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'INCR' : {
             return {
-                ...state,  //on copie le state actuel
+                ...state,  //on copie le state actuel avec le Rest parameter
                 score: state.score + 10  //on modifie le nouveau state actuel
 
             }

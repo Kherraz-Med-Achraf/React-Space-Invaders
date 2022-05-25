@@ -3,3 +3,26 @@
     z-index: -1;
     width: 100%;
 }
+
+.Responsive {
+    margin: auto;
+    height: 50%;
+    width: 60%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Responsive h1 {
+    color: white;
+    font-size: 50px;
+    margin: 20px;
+}

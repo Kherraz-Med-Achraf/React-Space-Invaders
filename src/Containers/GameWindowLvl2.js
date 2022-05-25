@@ -18,7 +18,7 @@ import shipLive from '../Assets/ShipImg/ship.png'
 const Audio = new SFX();
 
 
-function GameWindow(props) {
+function GameWindowLvl2(props) {
 
     const play = () => {
         if (toggle) {
@@ -35,7 +35,6 @@ function GameWindow(props) {
     //################################### Audio Initialisation ###################################################
 
     const [toggle, setToggle] = useState(true);
-    const [lvl, setLvl] = useState(1); //pour changer le type d'alien entre les niveaux
 
 
 
@@ -78,6 +77,7 @@ function GameWindow(props) {
             nav('/gameover');
         }
 
+        const lvl = 2  //pour changer le type d'alien entre les niveaux
 
         const item = document.querySelector(".game_window");
         const style = getComputedStyle(item) //renvoie toutes les propriteés CSS
@@ -183,10 +183,14 @@ function GameWindow(props) {
                     removeBullet,
                     lvl
                 });
+
                 conteur = min_x + 120 * col ;
                 aliens.push(alien);
+                // alienCol.push(alien); //TA
+
             }
             conteur = 0;
+            // alienGrid.push(alienCol);//TA
         }
 
 
@@ -222,6 +226,9 @@ function GameWindow(props) {
 
         window.addEventListener('keydown', e => {
             keys[e.key] = true;
+            if (e.key === 'm') {
+                ChangeAll()
+            }
         })
 
         const Audio = document.querySelector('#audio')
@@ -298,20 +305,16 @@ function GameWindow(props) {
         // //###################################### Alien fire Random #############################################
 
         const fireInterval = setInterval (() => { //alien qui tire randome
-           let alien = aliens[Math.floor(Math.random()*aliens.length)]; //pour choisir un alien random
-           alien.fireAlien({creatBullet});
-        }, 500)
+            let alien = aliens[Math.floor(Math.random()*aliens.length)]; //pour choisir un alien random
+            alien.fireAlien({creatBullet});
+        }, 350)
 
 
         const win = () => {
             if (aliens.length === 0) {
-                nav('/gamelvl2');
+                nav('/gameover');
             }
         }
-
-
-
-
 
 
         return () => {
@@ -343,4 +346,7 @@ function GameWindow(props) {
     );
 }
 
-export default GameWindow;
+
+
+
+export default GameWindowLvl2;

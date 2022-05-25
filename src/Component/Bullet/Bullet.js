@@ -4,9 +4,9 @@ import alienBullet from '../../Assets/Weapons/weaponAlien.png'
 
 export class Bullet   {
     constructor({x,y, nomDeClassCSS, isAlien}) {
-        this.el = document.createElement('img')
-        this.el.src = isAlien ? alienBullet : bulletImg;
+        this.el = document.createElement('img') //creat new img element
         this.isAlien = isAlien;
+        this.el.src = isAlien ? alienBullet : bulletImg; //operation ternaire
         this.el.className = nomDeClassCSS
         this.setX(x);
         this.setY(y);
@@ -16,11 +16,11 @@ export class Bullet   {
 
     setX = (x) => {
         this.x = x
-        this.el.style.left = `${x}px`;
+        this.el.style.left = `${x}px`; //mettre en css
     }
     setY = (y) => {
         this.y = y;
-        this.el.style.top = `${y}px`
+        this.el.style.top = `${y}px`;
     }
 
     move = () => {
